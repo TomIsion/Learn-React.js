@@ -1,0 +1,27 @@
+{
+  "presets": [
+    ["latest", {
+      "es2015": {
+        "loose": true
+      }
+    }],
+    "react",
+    "stage-0"
+  ],
+  "plugins": [
+    "react-hot-loader/babel",
+    [
+      "transform-runtime",
+      {
+        "helpers": false,
+        "polyfill": false,
+        "regenerator": true,
+        "moduleName": "babel-runtime"
+      }
+    ],
+    "transform-decorators-legacy",
+    "transform-class-properties"
+  ],
+  "sourceMaps": true,
+  "retainLines": true
+}
