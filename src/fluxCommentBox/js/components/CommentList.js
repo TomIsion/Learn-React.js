@@ -11,7 +11,7 @@ class CommentList extends Component {
     const { comment } = this.props
 
     return (
-      <ul>
+      <ul className={'comment-list'}>
         {
           comment.map(
             ele =>

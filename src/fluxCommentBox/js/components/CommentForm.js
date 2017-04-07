@@ -25,12 +25,13 @@ class CommentForm extends Component {
         <textarea
           value={text}
           onChange={e => this.handleTextAreaChange(e.target.value)}
+          className={'comment-textarea'}
         />
-        <botton
+        <button
           onClick={() => this.handleSubmit()}
         >
           确定
-        </botton>
+        </button>
       </div>
     )
   }

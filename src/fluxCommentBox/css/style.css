@@ -1,0 +1,48 @@
+body {
+  padding: 20px 30px 50px;
+}
+
+.comment-list {
+  margin-bottom: 50px;
+}
+
+.comment-list li {
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  padding: 15px 10px;
+  border-radius: 4px;
+}
+
+.comment-list p {
+  line-height: 1.5;
+  color: #333;
+}
+
+.comment-list p:nth-of-type(2) {
+  line-height: 1.6;
+  margin: 5px 0;
+  color: #111;
+}
+
+.comment-list p:nth-of-type(3) {
+  font-size: .8em;
+  text-align: right;
+}
+
+.comment-textarea {
+  width: 100%;
+  height: 50px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background-color: #337ab7;
+  color: #fff;
+  width: 100%;
+  margin-top: 5px;
+  padding: 13px 0 15px;
+  border-radius: 5px;
+  text-align: center;
+  -webkit-box-shadow: inset 0 -4px 0 #2a6496;
+  box-shadow: inset 0 -4px 0 #2a6496;
+}

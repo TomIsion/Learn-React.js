@@ -37,7 +37,7 @@ export default {
     new webpack.NoErrorsPlugin(),
     new HtmlWebpackPlugin({     // Create HTML file that includes references to bundled CSS and JS.
       template: 'index.html',
-      title: 'ONE·一个',
+      title: 'React.js Learn',
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -80,6 +80,14 @@ export default {
           'style',
           'css?modules&sourceMap&importLoaders=1&localIdentName=[local]___[hash:base64:5]',
           'postcss?parser=postcss-scss',
+        ],
+      },
+      {
+        test: /\.css$/,
+        include: path.resolve(__dirname, 'src'),
+        loaders: [
+          'style',
+          'css?sourceMap',
         ],
       },
       // 组件样式，需要私有化，单独配置

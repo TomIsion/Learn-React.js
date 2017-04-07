@@ -128,8 +128,15 @@ module.exports = {
           'postcss?parser=postcss-scss',
         ],
       },
+      {
+        test: /\.css$/,
+        include: path.resolve(__dirname, 'src'),
+        loaders: [
+          'style',
+          'css?sourceMap',
+        ],
+      },
       // 组件样式，需要私有化，单独配置
-
       {
         test: /\.scss$/,
         include: path.resolve(__dirname, 'src/sass'),
