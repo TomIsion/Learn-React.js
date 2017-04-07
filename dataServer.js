@@ -18,17 +18,37 @@ export default (req, res, next) => {
       res.end()
     }
 
-    const dataInfo = fs.readFileSync(path.resolve(__dirname, strPath), 'utf8')
+    // const dataInfo = fs.readFileSync(path.resolve(__dirname, strPath), 'utf8')
 
-    if (dataInfo) {
+    // if (dataInfo) {
+    //   res.writeHead(200, { 'Content-Type': 'application/json' })
+    //   res.end(dataInfo)
+    // }
+
+    // 使用文件流的方式来读取文件
+
+    const readFileSteam = fs.createReadStream(path.resolve(__dirname, strPath))
+    let str2JSON = ''
+    readFileSteam.on('data', data => {
+      str2JSON += data
+    })
+
+    readFileSteam.on('end', () => {
       res.writeHead(200, { 'Content-Type': 'application/json' })
-      res.end(dataInfo)
-    }
+      res.end(str2JSON)
+    })
   } else {
     // 不是获取 .json 文件的请求
     next()
   }
 }
+
+const queryString = (str, sep = '&', equ = '=') =>
+  str.split(sep).reduce((pre, cur) => {
+    const localPre = Object.assign({}, pre)
+    localPre[cur.split(equ)[0]] = cur.split(equ)[1]
+    return localPre
+  }, {})
 
 const postInfo = (req, res, next) => {
   if (req.method === 'POST') {
@@ -63,7 +83,7 @@ const postInfo = (req, res, next) => {
         newCommentsInfo.commentList.push({
           id: newCommentsInfo.commentList[newCommentsInfo.commentList.length - 1].id + 1,
           name: `Test${parseInt(Math.random() * 100, 10)}`,
-          content: JSON.parse(jsonString).content,
+          content: queryString(jsonString).content,
           publishTime: new Date().toLocaleDateString(),
         })
         fs.writeFileSync(path.resolve(__dirname, 'data/comments.json'), JSON.stringify(newCommentsInfo))

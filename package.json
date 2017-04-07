@@ -14,6 +14,7 @@
   "license": "MIT",
   "dependencies": {
     "classnames": "^2.2.5",
+    "flux": "^3.1.2",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "whatwg-fetch": "^2.0.3"
